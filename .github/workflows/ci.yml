@@ -1,0 +1,30 @@
+# Copyright (c) 2025-present VPMedia
+# author: Andras Csizmadia <andras@vpmedia.hu>
+
+name: Continuous Integration
+
+permissions:
+  contents: read
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        node-version: [24.X]
+    steps:
+      - uses: actions/checkout@v6
+      - uses: pnpm/action-setup@v4
+        with:
+          version: latest
+          run_install: false
+      - uses: actions/setup-node@v6
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: pnpm
+      - name: Build
+        run: pnpm build
