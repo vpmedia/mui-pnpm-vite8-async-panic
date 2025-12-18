@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import ProTip from './ProTip';
 import Copyright from './Copyright';
+import RenderComponent from './Grid';
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
         <Typography variant="h4" component="h1" sx={{ mb: 2 }}>
           Material UI Vite.js example
         </Typography>
+        <RenderComponent></RenderComponent>
         <ProTip />
         <Copyright />
       </Box>
